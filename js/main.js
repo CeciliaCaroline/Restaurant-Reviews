@@ -157,11 +157,16 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
+  const picture = document.createElement('picture');
+  const source = document.createElement('source');
+  source.srcset = DBHelper.imageUrlForRestaurant(restaurant);
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  li.append(image);
+  image.alt = DBHelper.imageAltTag(restaurant);
+  picture.append(source, image);
+  li.append(picture);
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
