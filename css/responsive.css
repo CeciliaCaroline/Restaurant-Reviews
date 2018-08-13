@@ -1,5 +1,5 @@
 
-#restaurants-list, #maincontent, #restaurant-container {
+#restaurants-list, #maincontent, #restaurant-container #reviews-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -35,8 +35,34 @@ nav h1 a {
     width: 75%
 }
 
+.inside #map-container {
+    background: blue none repeat scroll 0 0;
+    position: relative;
+    height: 300px;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 50px;
+  }
+
+  #breadcrumb {
+    width: 100%;
+    max-height: 50px;
+}
+#restaurant-container, #reviews-container  {
+    order: 1;
+    width: 100%;
+}
+
+.inside #footer {
+    width: 100%;
+  }
+
+.leaflet-top, .leaflet-bottom {
+    z-index: 900 !important;
+}
+
 @media (min-width: 600px) {
-    #restaurants-list li {
+    #restaurants-list li,  #reviews-list li {
         width: calc(50% - 10px);
         margin: 0 0 20px 0;
         display: block;
@@ -48,16 +74,17 @@ nav h1 a {
         text-align: right;
       
       }
+
+    #reviews-list li {
+        display: inline-grid;
+    }
     
 } 
 
 @media (min-width: 800px) {
-    #restaurants-list li {
+    #restaurants-list li, #reviews-list li {
         width: calc(33% - 10px);
     }
-
-
-
 
 } 
 
