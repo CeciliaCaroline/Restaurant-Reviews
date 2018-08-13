@@ -9,7 +9,7 @@ var markers = []
  */
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
-    .register("../serviceworker.js")
+    .register("/serviceworker.js")
     .then(registration => {
       console.log("service worker has been registered");
     })
