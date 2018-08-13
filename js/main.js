@@ -5,6 +5,20 @@ var newMap
 var markers = []
 
 /**
+ * Service worker registration
+ */
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("../serviceworker.js")
+    .then(registration => {
+      console.log("service worker has been registered");
+    })
+    .catch(error => {
+      console.log("service worker not rtegistered", error);
+    });
+}
+
+/**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -157,16 +171,9 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
-  const picture = document.createElement('picture');
-  const source = document.createElement('source');
-  source.srcset = DBHelper.imageUrlForRestaurant(restaurant);
-
-  const image = document.createElement('img');
-  image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.alt = DBHelper.imageAltTag(restaurant);
-  picture.append(source, image);
-  li.append(picture);
+  li.role="listitem";
+  let figure = imgHelper.createFigureElement('restaurant-img', restaurant);
+  li.append(figure);
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
@@ -182,6 +189,7 @@ createRestaurantHTML = (restaurant) => {
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
+  more.role = 'button';
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
