@@ -78,16 +78,16 @@ nav h1 a {
     #reviews-list li {
         display: inline-grid;
     }
-
-    picture, #restaurant-cuisine {
-        width: 50%
-    }
     
 } 
 
 @media (min-width: 800px) {
     #restaurants-list li, #reviews-list li {
         width: calc(33% - 10px);
+    }
+
+    picture, #restaurant-cuisine {
+        width: 50%
     }
 
 } 
