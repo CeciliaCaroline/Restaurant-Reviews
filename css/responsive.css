@@ -78,6 +78,10 @@ nav h1 a {
     #reviews-list li {
         display: inline-grid;
     }
+
+    picture, #restaurant-cuisine {
+        width: 50%
+    }
     
 } 
 
