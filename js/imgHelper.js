@@ -1,5 +1,6 @@
 /**
  * Common image helper functions.
+ * Kudos to Asante for helping me figure this out.
  */
 
 class imgHelper {
