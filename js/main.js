@@ -175,7 +175,7 @@ createRestaurantHTML = (restaurant) => {
   let figure = imgHelper.createFigureElement('restaurant-img', restaurant);
   li.append(figure);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
   li.append(name);
 
@@ -190,7 +190,7 @@ createRestaurantHTML = (restaurant) => {
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
   more.role = 'button';
-  more["aria-label"] = `${restaurant.name} details`;
+  more["aria-label"] = `View details of ${restaurant.name} restaurant`;
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
